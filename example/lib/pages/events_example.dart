@@ -91,6 +91,7 @@ class _TableEventsExampleState extends State<TableEventsExample> {
       body: Column(
         children: [
           TableCalendar<Event>(
+            weekendDays: [],
             firstDay: kFirstDay,
             lastDay: kLastDay,
             focusedDay: _focusedDay,
@@ -102,6 +103,9 @@ class _TableEventsExampleState extends State<TableEventsExample> {
             eventLoader: _getEventsForDay,
             startingDayOfWeek: StartingDayOfWeek.monday,
             calendarStyle: CalendarStyle(
+              defaultDecoration:
+                  BoxDecoration(color: Colors.red.withOpacity(0.2)),
+
               // Use `CalendarStyle` to customize the UI
               outsideDaysVisible: false,
             ),

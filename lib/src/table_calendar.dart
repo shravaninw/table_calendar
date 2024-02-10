@@ -3,7 +3,7 @@
 
 import 'dart:math';
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:simple_gesture_detector/simple_gesture_detector.dart';
 
@@ -704,6 +704,18 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
           margin: widget.calendarStyle.markerMargin,
           decoration: widget.calendarStyle.markerDecoration,
         );
+  }
+
+  Widget _buildImpactMarkerForTheDay(double markerSize, Color markerColor) {
+    return Container(
+      width: markerSize,
+      height: markerSize,
+      margin: widget.calendarStyle.markerMargin,
+      decoration: BoxDecoration(
+        color: widget.calendarStyle.lowImpactColor,
+        shape: BoxShape.circle,
+      ),
+    );
   }
 
   int _calculateWeekNumber(DateTime date) {

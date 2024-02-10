@@ -1,9 +1,11 @@
 // Copyright 2019 Aleksander Woźniak
 // SPDX-License-Identifier: Apache-2.0
 
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 /// Class containing styling and configuration for `TableCalendar`'s content.
+/// 1 =green
+/// 2=yelloww
 class CalendarStyle {
   /// Maximum amount of single event marker dots to be displayed.
   final int markersMaxCount;
@@ -141,6 +143,7 @@ class CalendarStyle {
 
   /// Decoration for day cells that do not match any other styles.
   final Decoration defaultDecoration;
+  final Decoration eventDecoration;
 
   /// Decoration for each interior row of day cells.
   final Decoration rowDecoration;
@@ -150,6 +153,9 @@ class CalendarStyle {
 
   /// Padding for the internal `Table` widget.
   final EdgeInsets tablePadding;
+  final Color highImpactColor;
+  final Color mediumImpactColor;
+  final Color lowImpactColor;
 
   /// Creates a `CalendarStyle` used by `TableCalendar` widget.
   const CalendarStyle({
@@ -157,6 +163,9 @@ class CalendarStyle {
     this.canMarkersOverflow = true,
     this.outsideDaysVisible = true,
     this.markersAutoAligned = true,
+    this.highImpactColor = Colors.green,
+    this.mediumImpactColor = Colors.red,
+    this.lowImpactColor = Colors.yellow,
     this.markerSize,
     this.markerSizeScale = 0.2,
     this.markersAnchor = 0.7,
@@ -224,6 +233,7 @@ class CalendarStyle {
         const TextStyle(fontSize: 12, color: const Color(0xFFBFBFBF)),
     this.defaultTextStyle = const TextStyle(),
     this.defaultDecoration = const BoxDecoration(shape: BoxShape.circle),
+    this.eventDecoration = const BoxDecoration(shape: BoxShape.circle),
     this.rowDecoration = const BoxDecoration(),
     this.tableBorder = const TableBorder(),
     this.tablePadding = const EdgeInsets.all(0),
